@@ -2,7 +2,7 @@
 
 namespace Alura\Solid\Model;
 
-class Curso implements IPontuavel
+class Curso implements IPontuavel, IAssistivel
 {
     /**
      * @var string $nome

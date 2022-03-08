@@ -19,7 +19,8 @@ $curso->adicionarVideo($videoA);
 $curso->adicionarVideo($videoB);
 
 $assistidor = new Assistidor();
-$assistidor->assistir($curso);
+// $assistidor->assistir($curso);
+$assistidor->assistir($videoB);
 $assistidor->assistir($aluraMais);
 
 var_dump("=== Vídeos ===");

@@ -4,7 +4,7 @@ namespace Alura\Solid\Model;
 
 use DateInterval;
 
-class Video
+class Video implements IAssistivel
 {
     protected const URL_BASE = "http://videos.alura.com.br/";
     protected bool $assistido = false;

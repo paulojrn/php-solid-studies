@@ -2,7 +2,7 @@
 
 namespace Alura\Solid\Model;
 
-class AluraMais extends Video implements IPontuavel
+class AluraMais extends Video implements IPontuavel, IAssistivel
 {
     private string $categoria;
 
@@ -15,6 +15,11 @@ class AluraMais extends Video implements IPontuavel
     public function recuperarPontuacao(): int
     {
         return $this->minutosDeDuracao() * 2;
+    }
+
+    public function assistir(): void
+    {
+        $this->assistido = true;
     }
 
     public function recuperarUrl(): string
