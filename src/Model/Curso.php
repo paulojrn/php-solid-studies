@@ -36,7 +36,7 @@ class Curso implements IPontuavel
         $this->feedbacks[] = $feedback;
     }
 
-    public function adicionarVideo(Video $video)
+    public function adicionarVideo(Video $video): void
     {
         if ($video->minutosDeDuracao() < 3) {
             throw new \DomainException('Video muito curto');
@@ -51,5 +51,31 @@ class Curso implements IPontuavel
     public function recuperarVideos(): array
     {
         return $this->videos;
+    }
+
+    public function assistir(): void
+    {
+        /**
+         * @var Video[] $videos 
+         */
+
+        foreach ($this->videos as $video) {
+            $video->assistir();
+        }
+    }
+
+    public function assistido(): bool
+    {
+        /**
+         * @var Video[] $videos 
+         */
+
+         $assistido = false;
+
+        foreach ($this->videos as $video) {
+            $assistido = $video->assistido() || $assistido;
+        }
+
+        return $assistido;
     }
 }

@@ -6,7 +6,7 @@ use DateInterval;
 
 class Video
 {
-    protected static const URL_BASE = "http://videos.alura.com.br/";
+    protected const URL_BASE = "http://videos.alura.com.br/";
     protected bool $assistido = false;
     protected string $nome;
     protected DateInterval $duracao;
@@ -15,12 +15,17 @@ class Video
     {
         $this->nome = $nome;
         $this->assistido = false;
-        $this->duracao = DateInterval::createFromDateString('0');
+        $this->duracao = DateInterval::createFromDateString('5 minutes');
     }
 
     public function assistir(): void
     {
         $this->assistido = true;
+    }
+
+    public function assistido(): bool
+    {
+        return $this->assistido;
     }
 
     public function minutosDeDuracao(): int
