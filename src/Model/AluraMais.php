@@ -4,7 +4,7 @@ namespace Alura\Solid\Model;
 
 class AluraMais extends Video implements IPontuavel
 {
-    private $categoria;
+    private string $categoria;
 
     public function __construct(string $nome, string $categoria)
     {
@@ -19,6 +19,6 @@ class AluraMais extends Video implements IPontuavel
 
     public function recuperarUrl(): string
     {
-        return str_replace(' ', '-', strtolower($this->categoria));
+        return self::URL_BASE . str_replace(' ', '-', strtolower($this->categoria));
     }
 }

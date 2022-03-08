@@ -2,20 +2,20 @@
 
 namespace Alura\Solid\Model;
 
+use DateInterval;
+
 class Video
 {
-    /** @var bool */
-    protected $assistido = false;
-    /** @var string */
-    protected $nome;
-    /** @var \DateInterval */
-    protected $duracao;
+    protected static const URL_BASE = "http://videos.alura.com.br/";
+    protected bool $assistido = false;
+    protected string $nome;
+    protected DateInterval $duracao;
 
     public function __construct(string $nome)
     {
         $this->nome = $nome;
         $this->assistido = false;
-        $this->duracao = \DateInterval::createFromDateString('0');
+        $this->duracao = DateInterval::createFromDateString('0');
     }
 
     public function assistir(): void
@@ -30,6 +30,6 @@ class Video
 
     public function recuperarUrl(): string
     {
-        return 'http://videos.alura.com.br/' . http_build_query(['nome' => $this->nome]);
+        return self::URL_BASE . http_build_query(['nome' => $this->nome]);
     }
 }
